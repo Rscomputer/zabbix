@@ -1,20 +1,21 @@
 #===============================================================================
 #         FILE: install-zbxAgent2_windows-x86_64.ps1
-#        USAGE: curl -ks https://raw.githubusercontent.com/wuilber002/Zabbix-Scripts/master/install/install-zbxAgent2_windows-x86_64.ps1
+#        USAGE: curl -ks https://github.com/Rscomputer/zabbix/blob/master/install/install-zbxAgent2_windows-x86_64.ps1
+
 #
 #  DESCRIPTION: Script de instalacao para o Zabbix Agent2 5.4 
 #
-#       AUTHOR: Igor Nicoli
+#       AUTHOR: Renato
 #      VERSION: 1.0
 #      CREATED: 30/08/2021 17:55:01 PM
 #     REVISION: ---
 #===============================================================================
 #
 # Para instalar esse script, execute os dois comandos abaixo:
-# $install_script="https://raw.githubusercontent.com/wuilber002/Zabbix-Scripts/master/install/install-zbxAgent2_windows-x86_64.ps1"
+# $install_script="https://github.com/Rscomputer/zabbix/blob/master/install/install-zbxAgent2_windows-x86_64.ps1
 # Invoke-WebRequest -Uri $install_script -OutFile "$env:TEMP\zabbix_agent_install.ps1"
 # cd $env:TEMP
-# .\zabbix_agent_install.ps1 -server <zabbix_server_address>
+# .\zabbix_agent_install.ps1 -server 192.168.0.154
 
 # Parametros Ip do Zabbix Server e Data de backup para os arquivos de configuracao.
 param ($server, $port='')
@@ -45,7 +46,7 @@ if (Test-Path "$env:TEMP\zabbix_agent.msi") {
         "LOGTYPE=""file"""
         "LOGFILE=""$install_folder\log\zabbix_agentd.log"""
         "ENABLEREMOTECOMMANDS=""1"""
-        "SERVER=""$server,127.0.0.1"""
+        "SERVER=""$server,192.169.0.154"""
         "SERVERACTIVE=""$server$port"""
         "HOSTNAME=""$server_name"""
         "TIMEOUT=""15"""
