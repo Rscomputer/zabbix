@@ -46,7 +46,7 @@ if (Test-Path "$env:TEMP\zabbix_agent.msi") {
         "LOGTYPE=""file"""
         "LOGFILE=""$install_folder\log\zabbix_agentd.log"""
         "ENABLEREMOTECOMMANDS=""1"""
-        "SERVER=""$server,192.169.0.154"""
+        "SERVER=""$server,127.0.0.1"""
         "SERVERACTIVE=""$server$port"""
         "HOSTNAME=""$server_name"""
         "TIMEOUT=""15"""
